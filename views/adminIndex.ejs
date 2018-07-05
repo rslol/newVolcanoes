@@ -1,0 +1,185 @@
+<% include ./partials/header2 %> 
+
+    <!-- Wrapper -->
+    <div id="wrapper">
+    
+        <!-- Header -->
+        <header id="header" class="alt" style="color: white; font-size: 24px; font-weight: 600; padding-top: 45px;">
+            <span class="logo"></span>
+            <h1>Introducing...
+                <br>The New Volcanoes</h1>
+        </header>
+    
+        <!-- Nav -->
+        <nav id="nav">
+            <ul>
+                <li>
+                    <a href="#intro" class="active">Introduction</a>
+                </li>
+                <li>
+                    <a href="#first">Music</a>
+                </li>
+                <li>
+                    <a href="#second">Gallery</a>
+                </li>
+                <li>
+                    <a href="#cta">Events</a>
+                </li>
+            </ul>
+        </nav>
+    
+        <!-- Main -->
+        <div id="main">
+    
+            <!-- Introduction -->
+            <section id="intro" class="main">
+                <div class="spotlight">
+                    <div class="content">
+                        <header class="major">
+                            <h2>Get To Know Us</h2>
+                        </header>
+                        <p>Lafayette Gilchrist is an American jazz pianist and composer. As of January 2014, he lived in Baltimore.
+                            He has had a long association with saxophonist David Murray, with whom he has toured internationally.
+                            Gilchrist leads an octet/nonet named the New Volcanoes, and a trio called Inside Out (with bassist
+                            Michael Formanek and drummer Eric Kennedy). Gilchrist acknowledges multiple influences on his music:
+                            "I come from hip-hop culture... I'm not a rapper. I'm not a DJ. I'm not a dancer. But I feed off
+                            of all that. All of that's part of what I grew up in, what I grew up around."</p>
+    
+                    </div>
+                    <span class="image">
+                        <img src="img/loginPic.jpg" alt="" height="200" width="200" />
+                    </span>
+                </div>
+            </section>
+    
+            <!-- First Section -->
+            <section id="first" class="main special">
+                <header class="major">
+                    <h2>MUSIC</h2>
+                </header>
+                <ul class="features">
+                    <li>
+                        <h3>Amed sed feugiat</h3>
+                        <video width="200" height="200" controls>
+                            <source src="vids/assume.mp4" type="video/mp4" />
+                        </video>
+                    </li>
+                    <li>
+                        <h3>Amed sed feugiat</h3>
+                        <video width="200" height="200" controls>
+                            <source src="vids/pingPong.mp4" type="video/mp4" />
+                        </video>
+                    </li>
+                    <li>
+                        <h3>Dolor nullam</h3>
+                        <video width="200" height="200" controls>
+                            <source src="vids/return.mp4" type="video/mp4" />
+                        </video>
+                    </li>
+                </ul>
+    
+            </section>
+    
+    
+            <section id="second" class="main special">
+                <header class="major">
+                    <h2>GALLERY</h2>
+                    <a id="new" href="/new"><i class="fa fa-plus" title="Add New Event"></i></a>
+                </header>
+                <ul class="features">
+                    <% images.forEach(function(image) { %>
+                        <li>
+                            <h3>
+                                <%= image.title %>
+                            </h3>
+                            <img src="<%= image.image %>" alt="image" width="200" height="200">
+                            <form action="/adminIndex/<%= image._id %>?_method=DELETE" method="POST">
+                                <button>Delete Image</button>
+                            </form>
+                        </li>
+                    <% }) %>
+                </ul>
+            </section>
+    
+    
+    
+            <section id="cta" class="main special">
+                <header class="major">
+                    <h2>EVENTS</h2>
+                    <a id="new" href="/new"><i class="fa fa-plus" title="Add New Event"></i></a>
+                </header>
+                <ul class="features">
+                    <% events.forEach(function(event) { %>
+                        <li>
+                            <h3>
+                                <%= event.title %>
+                            </h3>
+                            <h5>
+                                <%= event.location %>
+                            </h5>
+                            <p>
+                                <%= event.body %>
+                            </p>
+                            <p class="muted">
+                                <%= event.date %>
+                            </p>
+                            <p>
+                                <a href="/adminIndex/<%= event._id %>/edit">Edit Event</a>
+                            </p>
+                            <form action="/adminIndex/<%= event._id %>?_method=DELETE" method="POST">
+                                <button>Delete Event</button>
+                            </form>
+                        </li>
+                    <% }) %>
+                </ul>
+            </section>
+    
+        </div>
+    
+        <!-- Footer -->
+        <footer id="footer">
+            <section>
+                <ul class="icons">
+                    <li>
+                        <a href="#" class="icon fa-twitter alt">
+                            <span class="label">Twitter</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#" class="icon fa-facebook alt">
+                            <span class="label">Facebook</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#" class="icon fa-instagram alt">
+                            <span class="label">Instagram</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#" class="icon fa-github alt">
+                            <span class="label">GitHub</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#" class="icon fa-dribbble alt">
+                            <span class="label">Dribbble</span>
+                        </a>
+                    </li>
+                </ul>
+            </section>
+            <p class="copyright">&copy;2018 Timbr Technologies</p>
+        </footer>
+    
+    </div>
+    
+    <!-- Scripts -->
+    <script src="js/jquery.min.js"></script>
+    <script src="js/jquery.scrollex.min.js"></script>
+    <script src="js/jquery.scrolly.min.js"></script>
+    <script src="js/browser.min.js"></script>
+    <script src="js/breakpoints.min.js"></script>
+    <script src="js/util.js"></script>
+    <script src="js/main.js"></script>
+    
+    </body>
+</html>

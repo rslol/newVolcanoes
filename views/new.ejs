@@ -1,0 +1,106 @@
+<% include ./partials/header3 %>
+
+<div id="wrapper">
+
+    <header id="header" class="alt">
+        <span class="logo"></span>
+        <h1>Introducing...<br>The New Volcanoes</h1>
+    </header>
+
+    <div id="main">
+        
+        <section id="one" class="main special">
+            <header class="major">
+                <h2>Upload New Image</h2>
+            </header>  
+            <form action="/newImage" method="POST">
+                <div class="field">
+                    <h5>Title</h5>
+                    <input type="text" name="image[title]" placeholder="Title" />
+                </div>
+                <div class="field">
+                    <h5>Image URL</h5>
+                    <input type="text" name="image[image]" placeholder="Image" />
+                </div>
+                <h5>OR</h5>
+                <div class="field">
+                    <h5>Image Upload</h5>
+                    <input type="file" name="image[image]" placeholder="Image" accept="image/png, image/jpeg" />
+                </div>
+                <button>Submit</button>
+            </form>
+        </section>
+
+        <section id="two" class="main special">
+            <header class="major">
+                <h2>Create New Event</h2>
+            </header>
+            <form action="/newEvent" method="POST">
+                <div class="field">
+                    <h5>Title</h5>
+                    <input type="text" name="event[title]" placeholder="Title">
+                </div>
+                <div class="field">
+                    <h5>Location</h5>
+                    <input type="text" name="event[location]" placeholder="Location">
+                </div>
+                <div class="field">
+                    <h5>Details</h5>
+                    <input type="text" name="event[body]" placeholder="Details">
+                </div>
+                <div class="field">
+                    <h5>Date</h5>
+                    <input type="date" name="event[date]" placeholder="date">
+                </div>
+                <button>Submit</button>
+            </form>
+        </section>
+    </div>
+
+    <!-- Footer -->
+    <footer id="footer">
+        <section>
+            <ul class="icons">
+                <li>
+                    <a href="#" class="icon fa-twitter alt">
+                        <span class="label">Twitter</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="#" class="icon fa-facebook alt">
+                        <span class="label">Facebook</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="#" class="icon fa-instagram alt">
+                        <span class="label">Instagram</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="#" class="icon fa-github alt">
+                        <span class="label">GitHub</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="#" class="icon fa-dribbble alt">
+                        <span class="label">Dribbble</span>
+                    </a>
+                </li>
+            </ul>
+        </section>
+        <p class="copyright">&copy;2018 Timbr Technologies</p>
+    </footer>
+   
+
+<!-- Scripts -->
+<script src="../js/jquery.min.js"></script>
+<script src="../js/jquery.scrollex.min.js"></script>
+<script src="../js/jquery.scrolly.min.js"></script>
+<script src="../js/browser.min.js"></script>
+<script src="../js/breakpoints.min.js"></script>
+<script src="../js/util.js"></script>
+<script src="../js/main.js"></script>
+
+</body>
+
+</html>

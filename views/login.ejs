@@ -1,0 +1,28 @@
+<% include ./partials/header %>
+
+<div id="wrapper">
+
+    <!-- Main -->
+    <section id="main">
+        <header>
+            <span class="avatar">
+                <img src="img/loginPic.jpg" alt="New Volcanoes" height="150" width="150" />
+            </span>
+            <h1>Login Form</h1>
+            <form action="/login" method="POST">
+                <input type="text" placeholder="User Name" required style="border-radius: 15px;" id="inputEmail" name="username">
+                <input type="password" placeholder="Password" required style="border-radius: 15px;" id="inputPwd" name="password">
+                <button style="border-radius: 15px;">Login</button>
+            </form>
+        </header>
+</div>
+
+
+<script>
+    if ('addEventListener' in window) {
+        window.addEventListener('load', function () { document.body.className = document.body.className.replace(/\bis-preload\b/, ''); });
+        document.body.className += (navigator.userAgent.match(/(MSIE|rv:11\.0)/) ? ' is-ie' : '');
+    }
+</script>
+
+<% include ./partials/footer %>
