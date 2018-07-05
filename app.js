@@ -123,6 +123,12 @@ app.post('/login', passport.authenticate("local", {
     }), (req, res, err) => {
 });
 
+/* Logout */
+app.get('/logout', (req, res) => {
+    req.logout();
+    res.redirect('/home');
+});
+
 /* adminIndex Page */
 app.get('/adminIndex', (req, res) => {
     Event.find({}, (err, events) => {
