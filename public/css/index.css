@@ -3662,7 +3662,22 @@ input, select, textarea {
 		padding: 5em 5em 3em 5em ;
 		width: calc(100% + 2em);
 		margin: 0 0 3em -2em;
+		color:#fffff0;
 	}
+
+		#footer a {
+			width: 100%;
+			margin: 2.5em 0 2em 0;
+			font-size: 0.8em;
+			text-align: center;
+			color: #fffff0;
+			text-decoration: none;
+		}
+
+		#footer a span {
+			font-family: 'Source Sans Pro';
+		}
+
 
 		#footer > * {
 			width: calc(50% - 2em);
@@ -3674,6 +3689,7 @@ input, select, textarea {
 			margin: 2.5em 0 2em 0;
 			font-size: 0.8em;
 			text-align: center;
+			color: #fffff0;
 		}
 
 		@media screen and (max-width: 1280px) {
@@ -3691,6 +3707,7 @@ input, select, textarea {
 				display: block;
 				margin: 0 0 3em 0;
 				width: 100%;
+				color: #fffff0;
 			}
 
 				#footer > * {
