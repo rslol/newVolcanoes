@@ -4,7 +4,7 @@
     <div id="wrapper">
     
         <!-- Header -->
-        <header id="header" class="alt" style="color: white; font-size: 24px; font-weight: 600; padding-top: 45px;">
+        <header id="header" class="alt" style="color: white;">
             <span class="logo"></span>
             <h1>Introducing...
                 <br>The New Volcanoes</h1>
@@ -24,6 +24,9 @@
                 </li>
                 <li>
                     <a href="#cta">Events</a>
+                </li>
+                <li>
+                    <a href="/logout">Logout</a>
                 </li>
             </ul>
         </nav>
@@ -93,7 +96,7 @@
                                 <%= image.title %>
                             </h3>
                             <img src="<%= image.image %>" alt="image" width="200" height="200">
-                            <form action="/adminIndex/<%= image._id %>?_method=DELETE" method="POST">
+                            <form action="/adminIndex/<%= image._id %>?_method=DELETE" method="POST" style="margin-top: 15px;">
                                 <button>Delete Image</button>
                             </form>
                         </li>
@@ -123,9 +126,6 @@
                             <p class="muted">
                                 <%= event.date %>
                             </p>
-                            <p>
-                                <a href="/adminIndex/<%= event._id %>/edit">Edit Event</a>
-                            </p>
                             <form action="/adminIndex/<%= event._id %>?_method=DELETE" method="POST">
                                 <button>Delete Event</button>
                             </form>
@@ -141,27 +141,27 @@
             <section>
                 <ul class="icons">
                     <li>
-                        <a href="#" class="icon fa-twitter alt">
+                        <a href="#" class="icon fa-twitter">
                             <span class="label">Twitter</span>
                         </a>
                     </li>
                     <li>
-                        <a href="#" class="icon fa-facebook alt">
+                        <a href="#" class="icon fa-facebook">
                             <span class="label">Facebook</span>
                         </a>
                     </li>
                     <li>
-                        <a href="#" class="icon fa-instagram alt">
+                        <a href="#" class="icon fa-instagram">
                             <span class="label">Instagram</span>
                         </a>
                     </li>
                     <li>
-                        <a href="#" class="icon fa-github alt">
+                        <a href="#" class="icon fa-github">
                             <span class="label">GitHub</span>
                         </a>
                     </li>
                     <li>
-                        <a href="#" class="icon fa-dribbble alt">
+                        <a href="#" class="icon fa-dribbble">
                             <span class="label">Dribbble</span>
                         </a>
                     </li>

@@ -9,7 +9,9 @@ const   express                 = require('express'),
         localStrategy           = require('passport-local'),
         passportLocalMongoose   = require('passport-local-mongoose'),
         User                    = require('./user'),
-        expressSession          = require('express-session');
+        expressSession          = require('express-session'),
+        permission              = require('permission');
+       
 
 /* Connected to MLab w/server.js */
 mongoose.connect(config.database, (err) => {
@@ -37,6 +39,11 @@ var imageSchema = new mongoose.Schema({
 });
 var Image = mongoose.model('Image', imageSchema);
 
+/* How to handle someone not logged in */
+const notAuthenticated = {
+    redirect: '/login'
+}
+
 app.use(expressSession({
     /* PassportJS will use this phrase to encode data */
     secret: "I really hope this project gets me a job",
@@ -56,6 +63,11 @@ passport.use(new localStrategy(User.authenticate()));
 /* From user.js line 9 */
 passport.serializeUser(User.serializeUser());
 passport.deserializeUser(User.deserializeUser());
+/* When to use the notAuthenticated function */
+app.set('permission', {
+    role : 'username', 
+    notAuthenticated: notAuthenticated
+});
 
 // Landing Page
 app.get('/', (req, res, err) => {
@@ -130,7 +142,7 @@ app.get('/logout', (req, res) => {
 });
 
 /* adminIndex Page */
-app.get('/adminIndex', (req, res) => {
+app.get('/adminIndex', permission(), (req, res) => {
     Event.find({}, (err, events) => {
        Image.find({}, (err, images) => {
            console.log(events);
@@ -148,12 +160,12 @@ app.get('/adminIndex', (req, res) => {
 });
 
 /* New Page */
-app.get('/new', (req, res, err) => {
+app.get('/new', permission(), (req, res, err) => {
     res.render('new');
 });
 
 /* Create Routes */
-app.post('/newEvent', (req, res, err) => {
+app.post('/newEvent', permission(), (req, res, err) => {
     Event.create(req.body.event, (err, newEvent) => {
         if(err) throw err;
         console.log(newEvent);
@@ -161,7 +173,7 @@ app.post('/newEvent', (req, res, err) => {
     });
 });
 
-app.post('/newImage', (req, res, err) => {
+app.post('/newImage', permission(), (req, res, err) => {
     Image.create(req.body.image, (err, newImage) =>  {
         if(err) throw err;
         console.log(newImage);
@@ -170,7 +182,7 @@ app.post('/newImage', (req, res, err) => {
 });
 
 /* Delete Route */
-app.delete('/adminIndex/:id', (req, res) => {
+app.delete('/adminIndex/:id', permission(), (req, res) => {
     Event.findByIdAndRemove(req.params.id, (err) => {
         Image.findByIdAndRemove(req.params.id, (err) => {
             if(err){
